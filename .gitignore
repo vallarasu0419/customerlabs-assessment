@@ -1,0 +1,10 @@
+node_modules/
+build/action_recorder.min.js
+build/action_recorder.min.css
+build/action_recorder.min.js.LICENSE.txt
+.DS_Store
+*.log
+.playwright-*/
+SCORING.md
+requirement.md
+assessment-reviewer/*

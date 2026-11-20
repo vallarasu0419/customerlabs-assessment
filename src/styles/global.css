@@ -1,0 +1,183 @@
+/**
+ * Global Widget Styles - Elegant & Refined
+ * 
+ * Design System:
+ * - Primary: #0d9488 (Teal)
+ * - Accent: #6366f1 (Indigo)
+ * - Success: #10b981 (Emerald)
+ * - Danger: #f43f5e (Rose)
+ * - Neutral: Slate scale
+ * 
+ * Typography: Inter-like system font stack
+ * Shadows: Layered soft shadows
+ * Transitions: Smooth cubic-bezier curves
+ */
+
+/* CSS Custom Properties for consistent theming */
+:root {
+  --ar-primary: #0d9488;
+  --ar-primary-light: #14b8a6;
+  --ar-primary-dark: #0f766e;
+  --ar-accent: #6366f1;
+  --ar-accent-light: #818cf8;
+  --ar-success: #10b981;
+  --ar-success-light: #34d399;
+  --ar-danger: #f43f5e;
+  --ar-danger-light: #fb7185;
+
+  --ar-slate-50: #f8fafc;
+  --ar-slate-100: #f1f5f9;
+  --ar-slate-200: #e2e8f0;
+  --ar-slate-300: #cbd5e1;
+  --ar-slate-400: #94a3b8;
+  --ar-slate-500: #64748b;
+  --ar-slate-600: #475569;
+  --ar-slate-700: #334155;
+  --ar-slate-800: #1e293b;
+  --ar-slate-900: #0f172a;
+
+  --ar-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --ar-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --ar-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --ar-shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+  --ar-shadow-glow: 0 0 20px rgba(13, 148, 136, 0.15);
+
+  --ar-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ar-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ar-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ar-transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --ar-radius-sm: 6px;
+  --ar-radius-md: 10px;
+  --ar-radius-lg: 14px;
+  --ar-radius-xl: 20px;
+}
+
+/* Reset styles for widget to prevent host site interference */
+#action-recorder-widget-root {
+  all: initial;
+  position: fixed;
+  z-index: 999999;
+  pointer-events: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+#action-recorder-widget-root * {
+  box-sizing: border-box;
+  /* Let components control their own margin and padding */
+}
+
+/* Widget container base styles */
+.ar-widget {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ar-slate-700);
+  letter-spacing: -0.011em;
+}
+
+/* Ensure pointer events work correctly */
+.ar-widget * {
+  pointer-events: auto;
+}
+
+/* Common button reset */
+.ar-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px 12px;
+  height: 30px;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  transition: var(--ar-transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-button:focus {
+  outline: none;
+}
+
+.ar-button:focus-visible {
+  outline: 2px solid var(--ar-primary);
+  outline-offset: 2px;
+  border-radius: var(--ar-radius-sm);
+}
+
+/* Common input styles */
+.ar-input {
+  border: 1.5px solid var(--ar-slate-200);
+  border-radius: var(--ar-radius-md);
+  padding: 5px 10px;
+  height: 30px;
+  font-family: inherit;
+  font-size: inherit;
+  background: white;
+  transition: var(--ar-transition-base);
+}
+
+.ar-input:hover {
+  border-color: var(--ar-slate-300);
+}
+
+.ar-input:focus {
+  outline: none;
+  border-color: var(--ar-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+/* Common table styles */
+.ar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.ar-table th,
+.ar-table td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--ar-slate-100);
+}
+
+.ar-table th {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--ar-slate-50);
+  color: var(--ar-slate-500);
+}
+
+/* Elegant scrollbar */
+.ar-widget ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.ar-widget ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ar-widget ::-webkit-scrollbar-thumb {
+  background: var(--ar-slate-300);
+  border-radius: 10px;
+  transition: background var(--ar-transition-fast);
+}
+
+.ar-widget ::-webkit-scrollbar-thumb:hover {
+  background: var(--ar-slate-400);
+}
+
+/* Selection color */
+.ar-widget ::selection {
+  background: rgba(13, 148, 136, 0.15);
+  color: var(--ar-slate-900);
+}

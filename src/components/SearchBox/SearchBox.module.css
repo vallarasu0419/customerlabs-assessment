@@ -1,0 +1,90 @@
+/**
+ * SearchBox Component Styles - Clean & Spacious
+ */
+
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  color: #94a3b8;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input {
+  width: 100%;
+  padding: 0 36px 0 36px;
+  height: 30px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  color: #334155;
+  background: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:hover {
+  border-color: #cbd5e1;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.searchBox:focus-within .searchIcon {
+  color: #0d9488;
+}
+
+.input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.clearButton {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clearButton:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.clearButton:active {
+  transform: scale(0.92);
+}
+
+@media (max-width: 480px) {
+  .searchBox {
+    max-width: 100%;
+  }
+
+  .input {
+    padding: 10px 40px 10px 40px;
+    font-size: 13px;
+  }
+}

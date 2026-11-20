@@ -1,0 +1,110 @@
+/**
+ * Button Component Styles — Task 20 (5 pts)
+ */
+
+/* Base */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: -0.01em;
+  min-width: 80px;
+}
+
+/* Ripple on click */
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s, opacity 0.3s;
+}
+.button:active::after {
+  opacity: 1;
+  transform: scale(2.5);
+  transition: transform 0s, opacity 0s;
+}
+.button:focus { outline: none; }
+
+/* Task 20a — keyboard focus ring */
+.button:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
+
+/* Task 20b — primary */
+.primary {
+  background: #0d9488;
+  color: white;
+  box-shadow: 0 2px 6px rgba(13,148,136,0.25);
+}
+.primary:hover:not(:disabled) {
+  background: #0f766e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13,148,136,0.35);
+}
+.primary:active:not(:disabled) { transform: translateY(0); }
+
+/* Task 20c — secondary */
+.secondary {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+.secondary:hover:not(:disabled) {
+  background: white;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+.secondary:active:not(:disabled) { transform: translateY(0); }
+
+/* Task 20d — icon */
+.icon {
+  background: transparent;
+  color: #64748b;
+  min-width: unset;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 8px;
+}
+.icon:hover:not(:disabled) {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+/* Task 20e — disabled */
+.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Inner wrappers */
+.icon,
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .button { padding: 10px 20px; font-size: 13px; min-width: 100px; }
+}

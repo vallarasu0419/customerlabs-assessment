@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Recorder Widget - Test Page</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .instructions {
+      background-color: #f8f9fa;
+      border-left: 4px solid #667eea;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .instructions h3 {
+      margin-top: 0;
+      color: #667eea;
+    }
+
+    .instructions ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin: 8px 0;
+    }
+
+    .url-examples {
+      background-color: #e7f3ff;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+
+    .url-examples code {
+      background-color: #fff;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      color: #d63384;
+      display: block;
+      margin: 5px 0;
+    }
+
+    .demo-content {
+      margin-top: 40px;
+    }
+
+    .demo-content h2 {
+      color: #333;
+    }
+
+    .demo-content p {
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .button {
+      background-color: #667eea;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px 10px 10px 0;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #5568d3;
+    }
+
+    .form-demo {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🎯 Action Recorder Widget Test Page <a href="/about.html" style="float: right; color: #667eea; text-decoration: none;"> About</a></h1>
+    <p class="subtitle">Test the embeddable event tracking configuration widget</p>
+
+    <div class="instructions">
+      <h3>📋 How to Test:</h3>
+      <ol>
+        <li>First, build the widget by running: <code>npm install && npm run build</code></li>
+        <li>The widget is controlled by URL query parameters:</li>
+      </ol>
+
+      <div class="url-examples">
+        <strong>To SHOW the widget:</strong>
+        <code>/index.html?cl_widget=define</code>
+
+        <strong>To HIDE the widget:</strong>
+        <code>/index.html?cl_widget=track</code>
+      </div>
+
+      <ol start="3">
+        <li>Once you visit with <code>/index.html?cl_widget=define</code>, the widget will persist across page reloads
+        </li>
+        <li>To remove it, visit with <code>/index.html?cl_widget=track</code></li>
+        <li>Try the widget features:
+          <ul>
+            <li><strong>Move:</strong> Click the move button (arrows icon), then drag the widget</li>
+            <li><strong>Minimize:</strong> Click the minimize button (horizontal line icon)</li>
+            <li><strong>Search:</strong> Use the search box to filter events</li>
+            <li><strong>Pagination:</strong> Navigate through pages (3 items per page)</li>
+            <li><strong>Close:</strong> Click the X button to close and set tracking mode</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <div class="demo-content">
+      <h2>Demo Website Content</h2>
+      <p>
+        This is a sample webpage to test the Action Recorder Widget. The widget should overlay on top
+        of this content without interfering with the page's functionality.
+      </p>
+
+      <p>
+        <strong>The widget can track various actions including:</strong>
+      </p>
+      <ul>
+        <li>Button and link clicks</li>
+        <li>Form submissions</li>
+        <li>Page views</li>
+        <li>Scroll events</li>
+      </ul>
+
+      <button class="button" onclick="alert('Button clicked!')">Test Button 1</button>
+      <button class="button" onclick="alert('Another click!')">Test Button 2</button>
+
+      <div class="form-demo">
+        <h3>Sample Form</h3>
+        <form onsubmit="event.preventDefault(); alert('Form submitted!');">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+          </div>
+          <button type="submit" class="button">Submit Form</button>
+        </form>
+      </div>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+  </div>
+
+  <!-- Widget Loader Script -->
+  <script src="./build/index.js"></script>
+</body>
+
+</html>
